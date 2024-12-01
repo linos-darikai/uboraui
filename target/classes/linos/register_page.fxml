@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linos.RegisterPage">
+   <children>
+      <BorderPane prefHeight="463.0" prefWidth="640.0" style="-fx-min-height: 500; -fx-min-width: 800;" styleClass="custom-font" stylesheets="@../styles.css">
+         <left>
+            <AnchorPane prefHeight="500.0" prefWidth="261.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+               <children>
+                  <FontAwesomeIconView fill="#fbfbfb" glyphName="BLACK_TIE" layoutX="24.0" layoutY="184.0" selectionFill="#fffafa" size="80" />
+                  <Label layoutX="93.0" layoutY="125.0" styleClass="custom-font" stylesheets="@../styles.css" text="UBORA" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="41.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="58.0" layoutY="262.0" text="New User " textFill="#fbfafa">
+                     <font>
+                        <Font name="Arial" size="27.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="42.0" layoutY="302.0" styleClass="custom-font" stylesheets="@../styles.css" text="Registration" textFill="WHITE">
+                     <font>
+                        <Font name="AdobeArabic-Regular" size="27.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="87.0" layoutY="411.0" selectionFill="BLACK" size="50" />
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="500.0" prefWidth="539.0" style="-fx-background-color: lightgrey;" styleClass="custom-font" stylesheets="@../styles.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="324.0" layoutY="90.0" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label-badge" textFill="#605e5e" />
+                  <Label layoutX="491.0" layoutY="14.0" onMouseClicked="#backToLogin" onMouseEntered="#backToLogin" prefHeight="27.0" prefWidth="19.0" />
+                  <Label layoutX="33.0" layoutY="55.0" styleClass="custom-font" text="SIGN UP">
+                     <font>
+                        <Font name="Arial Bold" size="29.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="guestIndictator" alignment="CENTER" layoutX="402.0" layoutY="92.0" onMouseClicked="#changeColor" prefHeight="34.0" prefWidth="53.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label" text="GUE" textFill="#e0dddd" />
+                  <Label fx:id="facultyInd" alignment="CENTER" layoutX="451.0" layoutY="89.0" onMouseClicked="#changeColor" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: bl #605e5eck;" styleClass="rounded-label" text="FAC" textFill="#e0dddd" />
+                  <Label fx:id="studentInd" alignment="CENTER" layoutX="342.0" layoutY="90.0" onMouseClicked="#changeColor" prefHeight="37.0" prefWidth="57.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label" text="STU" textFill="#e0dddd" />
+                  <Button layoutX="181.0" layoutY="349.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="47.0" prefWidth="108.0" styleClass="rounded-label" text="Register" textFill="#e0dddd" />
+                  <TextField fx:id="nameInput" layoutX="84.0" layoutY="190.0" promptText="Name" styleClass="custom-font" />
+                  <TextField fx:id="idInput" layoutX="296.0" layoutY="190.0" prefHeight="27.0" prefWidth="149.0" promptText="ID/ Phone Number" />
+                  <TextField fx:id="emailInput" layoutX="84.0" layoutY="238.0" promptText="Email address" styleClass="custom-font" />
+                  <PasswordField fx:id="passwordInput" layoutX="84.0" layoutY="286.0" promptText="Password" />
+                  <PasswordField fx:id="reenterPassword" layoutX="296.0" layoutY="286.0" promptText="ReEnter Password" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</VBox>
