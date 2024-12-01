@@ -45,7 +45,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="479.0" prefWidth="549.0" style="-fx-background-color: e;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPage">
+<VBox prefHeight="479.0" prefWidth="549.0" style="-fx-background-color: e;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linos.LoginPage">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-max-height: 800px; -fx-max-width: 700px; -fx-min-height: 500px; -fx-min-width: 700px;">
          <left>
@@ -53,32 +53,35 @@
                <children>
                   <ImageView fitHeight="494.0" fitWidth="281.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/Legendary.jpeg" />
+                        <Image url="@../images/Legendary.jpeg" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
          </left>
          <center>
-            <AnchorPane fx:id="userPassword" prefHeight="500.0" prefWidth="417.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="500.0" prefWidth="417.0" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="userEmail" layoutX="159.0" layoutY="203.0" promptText="Enter your email" style="-fx-border-color: black;">
                      <font>
-                        <Font name="Arial" size="12.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="userPassword" layoutX="159.0" layoutY="247.0" promptText="Password" style="-fx-border-color: black;" />
-                  <FontAwesomeIconView glyphName="USER" layoutX="123.0" layoutY="221.0" size="17" wrappingWidth="13.5" />
-                  <FontAwesomeIconView glyphName="KEY" layoutX="121.0" layoutY="265.0" size="17" />
-                  <Button layoutX="159.0" layoutY="309.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: black; -fx-background-radius: 20px;" text="Login">
+                  <PasswordField fx:id="userPasswordInput" layoutX="159.0" layoutY="247.0" promptText="Password" style="-fx-border-color: black;">
                      <font>
-                        <Font name="Arial" size="12.0" />
+                        <Font size="14.0" />
+                     </font></PasswordField>
+                  <FontAwesomeIconView glyphName="USER" layoutX="123.0" layoutY="226.0" size="23" text="" wrappingWidth="13.5" />
+                  <FontAwesomeIconView glyphName="KEY" layoutX="118.0" layoutY="271.0" size="23" />
+                  <Button layoutX="194.0" layoutY="308.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: black; -fx-background-radius: 20px;" text="Login" textFill="#fdfdfd">
+                     <font>
+                        <Font name="Arial" size="21.0" />
                      </font>
                   </Button>
                   <FontAwesomeIconView glyphName="BLACK_TIE" layoutX="111.0" layoutY="148.0" size="70" wrappingWidth="54.66668701171875" />
-                  <Hyperlink layoutX="239.0" layoutY="313.0" onAction="#register" text="Register">
+                  <Hyperlink layoutX="197.0" layoutY="374.0" onAction="#register" text="Register">
                      <font>
-                        <Font name="Arial" size="12.0" />
+                        <Font name="Arial" size="17.0" />
                      </font>
                   </Hyperlink>
                   <Label layoutX="176.0" layoutY="99.0" text="UBORA">
@@ -86,11 +89,17 @@
                         <Font name="Arial Bold" size="42.0" />
                      </font>
                   </Label>
-                  <Button fx:id="closeButton" layoutX="357.0" layoutY="7.0" minWidth="52.0" mnemonicParsing="false" onAction="#close" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: trasparent;">
+                  <Button fx:id="closeButton" layoutX="390.0" layoutY="8.0" minWidth="52.0" mnemonicParsing="false" onAction="#close" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: trasparent;">
                      <graphic>
-                        <FontAwesomeIconView glyphName="CLOSE" />
+                        <FontAwesomeIconView glyphName="CLOSE" size="20" tabSize="12" />
                      </graphic>
                   </Button>
+                  <Hyperlink layoutX="305.0" layoutY="452.0" text="Forgot Password?">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label layoutX="52.0" layoutY="454.0" />
                </children>
             </AnchorPane>
          </center>
