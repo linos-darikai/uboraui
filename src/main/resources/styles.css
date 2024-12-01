@@ -2,8 +2,12 @@
     font-family: 'MyCustomFont';
     src: url('Playfair.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'MyCustomFontTwo';
+    src: url('Playfair-Italic-VariableFont_opsz\,wdth\,wght.ttf') format('truetype');
+}
 .custom-font {
-    -fx-font-family: 'MyCustomFont';
+    -fx-font-family: 'MyCustomFontTwo';
 }
 .rounded-label {
     -fx-background-color: rgb(0, 0, 0);
