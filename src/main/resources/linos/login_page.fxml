@@ -45,13 +45,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="479.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linos.LoginPage">
+<VBox prefHeight="479.0" prefWidth="549.0" style="-fx-background-color: black;" styleClass="rounded" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linos.LoginPage">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-max-height: 800px; -fx-max-width: 700px; -fx-min-height: 500px; -fx-min-width: 700px;">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-max-height: 800px; -fx-max-width: 700px; -fx-min-height: 500px; -fx-min-width: 700px; -fx-background-color: lightgrey;">
          <left>
-            <AnchorPane prefHeight="500.0" prefWidth="282.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="500.0" prefWidth="282.0" style="-fx-background-color: black;" styleClass="rounded-label" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="494.0" fitWidth="281.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="494.0" fitWidth="281.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true" styleClass="rounded-label">
                      <image>
                         <Image url="@../images/Legendary.jpeg" />
                      </image>
@@ -79,7 +79,7 @@
                      </font>
                   </Button>
                   <FontAwesomeIconView glyphName="BLACK_TIE" layoutX="111.0" layoutY="148.0" size="70" wrappingWidth="54.66668701171875" />
-                  <Hyperlink layoutX="197.0" layoutY="374.0" onAction="#register" text="Register">
+                  <Hyperlink layoutX="299.0" layoutY="314.0" onAction="#register" text="Register">
                      <font>
                         <Font name="Arial" size="17.0" />
                      </font>

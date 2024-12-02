@@ -33,6 +33,7 @@
 -->
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -42,11 +43,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linos.RegisterPage">
+<VBox prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: black;" styleClass="rounded-label" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linos.RegisterPage">
    <children>
       <BorderPane prefHeight="463.0" prefWidth="640.0" style="-fx-min-height: 500; -fx-min-width: 800;" styleClass="custom-font" stylesheets="@../styles.css">
          <left>
-            <AnchorPane prefHeight="500.0" prefWidth="261.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="500.0" prefWidth="261.0" style="-fx-background-color: black;" styleClass="rounded-label" BorderPane.alignment="CENTER">
                <children>
                   <FontAwesomeIconView fill="#fbfbfb" glyphName="BLACK_TIE" layoutX="24.0" layoutY="184.0" selectionFill="#fffafa" size="80" />
                   <Label layoutX="93.0" layoutY="125.0" styleClass="custom-font" stylesheets="@../styles.css" text="UBORA" textFill="WHITE">
@@ -69,7 +70,7 @@
             </AnchorPane>
          </left>
          <center>
-            <AnchorPane prefHeight="500.0" prefWidth="539.0" style="-fx-background-color: lightgrey;" styleClass="custom-font" stylesheets="@../styles.css" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="500.0" prefWidth="539.0" style="-fx-background-color: lightgrey;" stylesheets="@../styles.css" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="324.0" layoutY="90.0" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label-badge" textFill="#605e5e" />
                   <Label layoutX="491.0" layoutY="14.0" onMouseClicked="#backToLogin" onMouseEntered="#backToLogin" prefHeight="27.0" prefWidth="19.0" />
@@ -88,6 +89,10 @@
                   <PasswordField fx:id="passwordInput" layoutX="84.0" layoutY="286.0" promptText="Password" />
                   <PasswordField fx:id="reenterPassword" layoutX="296.0" layoutY="286.0" promptText="ReEnter Password" />
                </children>
+               <styleClass>
+                  <String fx:value="custom-font" />
+                  <String fx:value="rounded-label" />
+               </styleClass>
             </AnchorPane>
          </center>
       </BorderPane>
