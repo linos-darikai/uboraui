@@ -1,0 +1,14 @@
+linos\RegisterPage.class
+linos\SceneController.class
+linos\App.class
+linos\Ticket.class
+linos\Faculty.class
+linos\HomePage.class
+linos\Student.class
+linos\DisplayTicket.class
+linos\Guest.class
+linos\UserManager.class
+linos\LoginPage.class
+linos\PurchaseTicket.class
+linos\QRCode.class
+linos\User.class
