@@ -1,3 +1,5 @@
+package linos;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,6 +14,7 @@ public class UserManager {
         users.add(user);
         System.out.println("User added: " + user.getName());
     }
+    public ArrayList<User> getUsers(){return users;}
 
     public User getUserByPassword(String password) {
         for (User user : users) {

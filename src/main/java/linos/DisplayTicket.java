@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 public class DisplayTicket {
 
+    private UserManager userManager;
     @FXML
     private Label locationEvent;
 
@@ -35,6 +36,9 @@ public class DisplayTicket {
         stage.setScene(scene);
         stage.show();
 
+    }
+    public void setUserManager(UserManager us){
+        this.userManager = us;
     }
 
    

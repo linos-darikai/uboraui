@@ -1,3 +1,7 @@
+package linos;
+
+
+
 public class Student extends User {
     private String yearGroup;
 

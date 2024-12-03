@@ -2,19 +2,20 @@ package linos;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
-public class HomePage{
+public class HomePage {
+    private UserManager userManager;
+    private User currentUser;
+
     @FXML
     private Label categoryName;
-    
+
+    @FXML
+    private Button welcomeMessage;
 
     @FXML
     private ImageView qrCode1;
@@ -25,30 +26,41 @@ public class HomePage{
     @FXML
     private ImageView qrCode3;
 
-// return to login after registering
+    @FXML
+    public void initialize() {
+        // Retrieve current user when the page initializes
+        currentUser = App.getInstance().getCurrentUser();
+        
+        // Display welcome message if user exists
+        if (currentUser != null && welcomeMessage != null) {
+            welcomeMessage.setText("Welcome, " + currentUser.getName());
+        }
+    }
+
+    // Return to login after registering
     @FXML
     void backToLogin(MouseEvent event) throws Exception {
-       
-        Parent root = (new FXMLLoader(getClass().getResource("login_page.fxml"))).load();
-        Stage stage = (Stage)((Node)(event.getSource())).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        SceneController sceneController = App.getInstance().getSceneController();
+        sceneController.switchToLogin();
     }
-    //goes to ticket_page
+
+    public void setUserManager(UserManager us) {
+        this.userManager = us;
+    }
+
+    public void setCurrentUser(User us) {
+        this.currentUser = us;
+        
+        // Update welcome message when user is set
+        if (welcomeMessage != null || us != null) {
+            welcomeMessage.setText("Welcome, " + App.getInstance().getCurrentUser().getName());
+        }
+    }
+
+    // Goes to ticket_page
     @FXML
-    void toPurchaseTicket(MouseEvent event) throws IOException{
-          
-        Parent root = (new FXMLLoader(getClass().getResource("purchase_ticket.fxml"))).load();
-        Stage stage = (Stage)((Node)(event.getSource())).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-     
-
+    void toPurchaseTicket(MouseEvent event) throws IOException {
+        SceneController sceneController = App.getInstance().getSceneController();
+        sceneController.switchToPurchase();
     }
-
 }
-
-

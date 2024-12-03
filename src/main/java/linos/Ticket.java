@@ -1,3 +1,4 @@
+package linos;
 // Create a private static variable that would store the price of the tickets
 
 public class Ticket {

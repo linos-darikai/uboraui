@@ -79,9 +79,9 @@
                         <Font name="Arial Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label fx:id="guestIndictator" alignment="CENTER" layoutX="402.0" layoutY="92.0" onMouseClicked="#changeColor" prefHeight="34.0" prefWidth="53.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label" text="GUE" textFill="#e0dddd" />
-                  <Label fx:id="facultyInd" alignment="CENTER" layoutX="451.0" layoutY="89.0" onMouseClicked="#changeColor" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: bl #605e5eck;" styleClass="rounded-label" text="FAC" textFill="#e0dddd" />
-                  <Label fx:id="studentInd" alignment="CENTER" layoutX="342.0" layoutY="90.0" onMouseClicked="#changeColor" prefHeight="37.0" prefWidth="57.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label" text="STU" textFill="#e0dddd" />
+                  <Label fx:id="guestIndictator" alignment="CENTER" layoutX="402.0" layoutY="92.0" onMouseClicked="#changeGueState" prefHeight="34.0" prefWidth="53.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label" text="GUE" textFill="#e0dddd" />
+                  <Label fx:id="facultyInd" alignment="CENTER" layoutX="451.0" layoutY="89.0" onMouseClicked="#changeFacState" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: bl #605e5eck;" styleClass="rounded-label" text="FAC" textFill="#e0dddd" />
+                  <Label fx:id="studentInd" alignment="CENTER" layoutX="342.0" layoutY="90.0" onMouseClicked="#changeStuState" prefHeight="37.0" prefWidth="57.0" style="-fx-background-color: #605e5e;" styleClass="rounded-label" text="STU" textFill="#e0dddd" />
                   <Button layoutX="181.0" layoutY="349.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="47.0" prefWidth="108.0" styleClass="rounded-label" text="Register" textFill="#e0dddd" />
                   <TextField fx:id="nameInput" layoutX="84.0" layoutY="190.0" promptText="Name" styleClass="custom-font" />
                   <TextField fx:id="idInput" layoutX="296.0" layoutY="190.0" prefHeight="27.0" prefWidth="149.0" promptText="ID/ Phone Number" />

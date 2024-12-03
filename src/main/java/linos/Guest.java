@@ -1,3 +1,4 @@
+package linos;
 public class Guest extends User {
     private String phoneNumber;
 

@@ -1,5 +1,7 @@
 package linos;
 
+import java.net.URL;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,24 +10,97 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class App extends Application {
+    private UserManager appManager;
+    private SceneController sceneController;
+    private static App instance;
+    private User currentUser = new User("0", "John Doe","@", "0000");   
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/linos/login_page.fxml"));
-            Parent root = loader.load();
-            LoginPage controller = loader.getController();
-            controller.setMainWindow(primaryStage);
-            
+            instance = this;
+            sceneController = new SceneController(primaryStage);
+            appManager = new UserManager();
+
+            // Load the CSV file
+            URL fileUrl = getClass().getResource("/tickets.csv");
+            if (fileUrl != null) {
+                System.out.println("File path: " + fileUrl.getPath());
+                appManager.loadUsersFromCSV(fileUrl.getPath());
+            } else {
+                System.err.println("CSV file not found");
+            }
+
+            // Loading the Login Scene
+            FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/linos/login_page.fxml"));
+            Parent loginRoot = loginLoader.load();
+            LoginPage loginController = loginLoader.getController();
+            loginController.setUserManager(appManager);
+            loginController.setCurrentUser(currentUser);
+            Scene loginScene = new Scene(loginRoot, 700, 500);
+            sceneController.setLoginScene(loginScene);
+
+            // Loading the Register Scene
+            FXMLLoader registerLoader = new FXMLLoader(getClass().getResource("/linos/register_page.fxml"));
+            Parent registerRoot = registerLoader.load();
+            RegisterPage registerController = registerLoader.getController();
+            registerController.setUserManager(appManager);
+            Scene registerScene = new Scene(registerRoot, 800, 500);
+            sceneController.setRegisterScene(registerScene);
+
+            // Loading the Home Scene (fixed the incorrect assignment)
+            FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("/linos/home_page.fxml"));
+            Parent homeRoot = homeLoader.load(); // Correctly loading home_page.fxml
+            HomePage homeController = homeLoader.getController();
+            homeController.setUserManager(appManager);
+            homeController.setCurrentUser(currentUser);
+            Scene homeScene = new Scene(homeRoot, 800, 500); // Using the correct root (homeRoot)
+            sceneController.setHomeScene(homeScene);
+
+            // Loading the Purchase Ticket Scene
+            FXMLLoader purchaseLoader = new FXMLLoader(getClass().getResource("/linos/purchase_ticket.fxml"));
+            Parent purchaseRoot = purchaseLoader.load();
+            PurchaseTicket purchaseController = purchaseLoader.getController();
+            purchaseController.setUserManager(appManager);
+            Scene purchaseScene = new Scene(purchaseRoot, 800, 500);
+            sceneController.setPurchaseTicketScene(purchaseScene);
+
+            // Loading the Display Ticket Scene
+            FXMLLoader dLoader = new FXMLLoader(getClass().getResource("/linos/display_ticket.fxml"));
+            Parent displayRoot = dLoader.load();
+            DisplayTicket displayController = dLoader.getController();
+            displayController.setUserManager(appManager);
+            Scene displayScene = new Scene(displayRoot, 800, 500);
+            sceneController.setDisplayTicketScene(displayScene);
+
+            // Show the initial scene (login page)
             primaryStage.initStyle(StageStyle.UNDECORATED);
-            primaryStage.setScene(new Scene(root, 700, 500));
-            primaryStage.setTitle("Hello World");
+            primaryStage.setScene(loginScene); // Set the login scene as the starting scene
             primaryStage.show();
+
         } catch (Exception e) {
             e.printStackTrace(); // This will print the full stack trace
             throw e; // Rethrow to maintain original behavior
         }
     }
+
+
+    public SceneController getSceneController() {
+        return sceneController;
+    }
+
+    public static App getInstance() {
+        return instance;
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
+
+    void setCurrentUser(User userByPassword) {
+        this.currentUser = userByPassword;
+    }
+    User getCurrentUser() {
+        return this.currentUser;
+        }
 }

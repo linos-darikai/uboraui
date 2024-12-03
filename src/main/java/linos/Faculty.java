@@ -1,3 +1,4 @@
+package linos;
 public class Faculty extends User {
     private String department;
 

@@ -1,18 +1,20 @@
+package linos;
+
+
 import java.util.ArrayList;
-import java.util.List;
 /*  Create a password , =create a getter method for password and a check method for password
 
  */
 
 
 
-public abstract class User {
+public class User {
     protected String id;
     protected String name;
     protected String email;
     protected String password;
 
-    private List<Ticket> tickets = new ArrayList<>();
+    private ArrayList<Ticket> tickets = new ArrayList<>();
 
     public User(String id, String name, String email, String password) {
         this.id = id;
@@ -47,7 +49,7 @@ public abstract class User {
 
 
 
-    public List<Ticket> getTickets() {
+    public ArrayList<Ticket> getTickets() {
         return tickets;
     }
 
