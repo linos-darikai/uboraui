@@ -58,19 +58,12 @@ public class LoginPage {
             alert.setHeaderText("....");
             alert.setContentText("No User yet Please Register");
             alert.showAndWait();
+            return;
             
         }
-        if(userManage.getUserByPassword(userPasswordInput.getText()) != null){
-            this.currentUser = userManage.getUserByPassword(userPasswordInput.getText());
-            
-            // Set current user in App singleton
-            App.getInstance().setCurrentUser(userManage.getUserByPassword(userPasswordInput.getText()));
-            
-            // Switch to home scene
-            SceneController sceneController = App.getInstance().getSceneController();
-            sceneController.switchToHome();
-        }
-        if(userManage.getUserByPassword(userPasswordInput.getText()) == null){
+        User foundUser = userManage.getUserByPassword(userPasswordInput.getText());
+
+        if( foundUser == null){
       
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Password Incorrect");
@@ -78,12 +71,21 @@ public class LoginPage {
             alert.setContentText("Wrong Password");
             alert.showAndWait();
             System.out.println(userPasswordInput.getText());
+            return;
         }
-
+        SceneController sceneController = App.getInstance().getSceneController();
         
-
-    
         
+        HomePage homeController = sceneController.getHomeController();
+        
+      
+        homeController.setCurrentUser(foundUser);
+        
+        
+        sceneController.switchToHome();
+        
+     
+               
 
     }
 

@@ -13,7 +13,7 @@ public class App extends Application {
     private UserManager appManager;
     private SceneController sceneController;
     private static App instance;
-    private User currentUser = new User("0", "John Doe","@", "0000");   
+    private User currentUser;// = new User("0", "John Doe","@", "0000");   
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -53,9 +53,8 @@ public class App extends Application {
             Parent homeRoot = homeLoader.load(); // Correctly loading home_page.fxml
             HomePage homeController = homeLoader.getController();
             homeController.setUserManager(appManager);
-            homeController.setCurrentUser(currentUser);
             Scene homeScene = new Scene(homeRoot, 800, 500); // Using the correct root (homeRoot)
-            sceneController.setHomeScene(homeScene);
+            sceneController.setHomeScene(homeScene, homeController);
 
             // Loading the Purchase Ticket Scene
             FXMLLoader purchaseLoader = new FXMLLoader(getClass().getResource("/linos/purchase_ticket.fxml"));
@@ -97,10 +96,10 @@ public class App extends Application {
         launch(args);
     }
 
-    void setCurrentUser(User userByPassword) {
+    public void setCurrentUser(User userByPassword) {
         this.currentUser = userByPassword;
     }
-    User getCurrentUser() {
+    public User getCurrentUser() {
         return this.currentUser;
         }
 }

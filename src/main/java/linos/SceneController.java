@@ -10,6 +10,7 @@ public class SceneController {
     private Scene homeScene;
     private Scene purchaseTicketScene;
     private Scene displayTicketScene;
+    private HomePage homeController;
 
     public SceneController(Stage stage) {
         this.stage = stage;
@@ -22,8 +23,9 @@ public class SceneController {
     public void setRegisterScene(Scene scene) {
         this.registerScene = scene;
     }
-    public void setHomeScene(Scene scene){
+    public void setHomeScene(Scene scene, HomePage controller){
         this.homeScene = scene;
+        this.homeController = controller;
     }
     public void setPurchaseTicketScene(Scene scene){
         this.purchaseTicketScene = scene;
@@ -46,5 +48,8 @@ public class SceneController {
     }
     public void switchToDisplay(){
         stage.setScene(displayTicketScene);
+    }
+    public HomePage getHomeController() {
+        return homeController;
     }
 }
