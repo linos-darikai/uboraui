@@ -61,7 +61,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" styleClass="rounded-label" stylesheets="@../styles.css" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="307.0" layoutY="102.0" onMouseClicked="#setVIP" prefHeight="37.0" prefWidth="91.0" style="-fx-pref-height: 39; -fx-pref-width: 89;" text="VIP" textFill="#dddddd">
+                  <Label fx:id="vipLabel" alignment="CENTER" layoutX="307.0" layoutY="102.0" onMouseClicked="#setVIP" prefHeight="37.0" prefWidth="91.0" style="-fx-pref-height: 39; -fx-pref-width: 89;" text="VIP" textFill="#dddddd">
                      <styleClass>
                         <String fx:value="custom-font" />
                         <String fx:value="rounded-label" />
@@ -70,7 +70,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="397.0" layoutY="102.0" onMouseClicked="#setRegular" prefHeight="35.0" prefWidth="89.0" style="-fx-pref-height: 39; -fx-pref-width: 89;" text="REGULAR" textFill="#dddddd">
+                  <Label fx:id="regLabel" layoutX="397.0" layoutY="102.0" onMouseClicked="#setRegular" prefHeight="35.0" prefWidth="89.0" style="-fx-pref-height: 39; -fx-pref-width: 89;" text="REGULAR" textFill="#dddddd">
                      <styleClass>
                         <String fx:value="rounded-label" />
                         <String fx:value="custom-font" />
@@ -84,8 +84,8 @@
                         <Font size="31.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="245.0" layoutY="191.0" prefHeight="25.0" prefWidth="217.0" promptText="1234-5678-2000" />
-                  <TextField layoutX="245.0" layoutY="252.0" prefHeight="25.0" prefWidth="217.0" promptText="0000" />
+                  <TextField fx:id="creditInfo" layoutX="245.0" layoutY="191.0" prefHeight="25.0" prefWidth="217.0" promptText="1234-5678-2000" />
+                  <TextField fx:id="cvvInfo" layoutX="245.0" layoutY="252.0" prefHeight="25.0" prefWidth="217.0" promptText="0000" />
                   <FontAwesomeIconView glyphName="CREDIT_CARD" layoutX="101.0" layoutY="214.0" size="30" />
                   <Label layoutX="144.0" layoutY="192.0" text="Credit Card">
                      <font>

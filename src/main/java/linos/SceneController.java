@@ -11,6 +11,8 @@ public class SceneController {
     private Scene purchaseTicketScene;
     private Scene displayTicketScene;
     private HomePage homeController;
+    private PurchaseTicket purchaseTController;
+    private DisplayTicket dController;
 
     public SceneController(Stage stage) {
         this.stage = stage;
@@ -27,11 +29,13 @@ public class SceneController {
         this.homeScene = scene;
         this.homeController = controller;
     }
-    public void setPurchaseTicketScene(Scene scene){
+    public void setPurchaseTicketScene(Scene scene, PurchaseTicket controller){
         this.purchaseTicketScene = scene;
+        this.purchaseTController = controller;
     }
-    public void setDisplayTicketScene(Scene scene){
+    public void setDisplayTicketScene(Scene scene, DisplayTicket controller){
         this.displayTicketScene = scene;
+        this.dController = controller;
     }
     public void switchToLogin() {
         stage.setScene(loginScene);
@@ -51,5 +55,12 @@ public class SceneController {
     }
     public HomePage getHomeController() {
         return homeController;
+    }
+    public PurchaseTicket getPurchaseController(){
+        return purchaseTController;
+    }
+    public DisplayTicket getDisplayController(){
+        return dController;
+        
     }
 }

@@ -1,10 +1,11 @@
 package linos;
 
 
+import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
-/*  Create a password , =create a getter method for password and a check method for password
-
- */
+import java.util.Random;
 
 
 
@@ -13,6 +14,8 @@ public class User {
     protected String name;
     protected String email;
     protected String password;
+    protected File qrcode;
+    protected String path;
 
     private ArrayList<Ticket> tickets = new ArrayList<>();
 
@@ -21,12 +24,56 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
+        /* 
+        Random random = new Random();
+        String loc = "resources/"+ random.nextInt() + ".png";
+        this.path = loc;
+        this.qrcode = new File(path);
+        */
+        try {
+            
+            URL resourceUrl = getClass().getClassLoader().getResource("images");
+            if (resourceUrl != null) {
+                File resourceDir = new File(resourceUrl.toURI());
+                Random random = new Random();
+                File qrCodeFile = new File(resourceDir, random.nextInt() + ".png");
+                
+                this.qrcode = qrCodeFile;
+                this.path = qrCodeFile.getAbsolutePath();
+            } else {
+                throw new RuntimeException("Could not locate resources directory");
+            }
+        } catch (URISyntaxException e) {
+            System.err.println("Error creating QR code file: " + e.getMessage());
+            e.printStackTrace();
+        }
 
     }
     public User(String id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
+        /* 
+        Random random = new Random();
+        String path = "resources/"+ random.nextInt() + ".png";
+        this.qrcode = new File(path);*/
+        try {
+        
+        URL resourceUrl = getClass().getClassLoader().getResource("");
+        if (resourceUrl != null) {
+            File resourceDir = new File(resourceUrl.toURI());
+            Random random = new Random();
+            File qrCodeFile = new File(resourceDir, random.nextInt() + ".png");
+            
+            this.qrcode = qrCodeFile;
+            this.path = qrCodeFile.getAbsolutePath();
+        } else {
+            throw new RuntimeException("Could not locate resources directory");
+        }
+        } catch (URISyntaxException e) {
+        System.err.println("Error creating QR code file: " + e.getMessage());
+        e.printStackTrace();
+        }
     }
 
 
@@ -59,5 +106,11 @@ public class User {
     public void purchaseTicket(String eventId, double price, String seatNumber, String ticketType, String filepath) {
         Ticket t = new Ticket(ticketType, eventId, price, seatNumber, ticketType, filepath);
         addTicket(t);
+    }
+    public File getFile(){
+        return qrcode;
+    }
+    public String getPath(){
+        return path;
     }
 }

@@ -3,6 +3,7 @@ package linos;
 
 import java.io.IOException;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -77,9 +78,11 @@ public class LoginPage {
         
         
         HomePage homeController = sceneController.getHomeController();
+       
         
       
         homeController.setCurrentUser(foundUser);
+        Platform.runLater(() -> homeController.getWelcomButton().setText("Welcome ," + foundUser.getName()));
         
         
         sceneController.switchToHome();

@@ -22,7 +22,7 @@ public class App extends Application {
             sceneController = new SceneController(primaryStage);
             appManager = new UserManager();
 
-            // Load the CSV file
+           
             URL fileUrl = getClass().getResource("/tickets.csv");
             if (fileUrl != null) {
                 System.out.println("File path: " + fileUrl.getPath());
@@ -30,8 +30,7 @@ public class App extends Application {
             } else {
                 System.err.println("CSV file not found");
             }
-
-            // Loading the Login Scene
+            // Loading the main page
             FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/linos/login_page.fxml"));
             Parent loginRoot = loginLoader.load();
             LoginPage loginController = loginLoader.getController();
@@ -48,12 +47,11 @@ public class App extends Application {
             Scene registerScene = new Scene(registerRoot, 800, 500);
             sceneController.setRegisterScene(registerScene);
 
-            // Loading the Home Scene (fixed the incorrect assignment)
             FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("/linos/home_page.fxml"));
-            Parent homeRoot = homeLoader.load(); // Correctly loading home_page.fxml
+            Parent homeRoot = homeLoader.load(); 
             HomePage homeController = homeLoader.getController();
             homeController.setUserManager(appManager);
-            Scene homeScene = new Scene(homeRoot, 800, 500); // Using the correct root (homeRoot)
+            Scene homeScene = new Scene(homeRoot, 800, 500);
             sceneController.setHomeScene(homeScene, homeController);
 
             // Loading the Purchase Ticket Scene
@@ -62,7 +60,7 @@ public class App extends Application {
             PurchaseTicket purchaseController = purchaseLoader.getController();
             purchaseController.setUserManager(appManager);
             Scene purchaseScene = new Scene(purchaseRoot, 800, 500);
-            sceneController.setPurchaseTicketScene(purchaseScene);
+            sceneController.setPurchaseTicketScene(purchaseScene, purchaseController);
 
             // Loading the Display Ticket Scene
             FXMLLoader dLoader = new FXMLLoader(getClass().getResource("/linos/display_ticket.fxml"));
@@ -70,16 +68,16 @@ public class App extends Application {
             DisplayTicket displayController = dLoader.getController();
             displayController.setUserManager(appManager);
             Scene displayScene = new Scene(displayRoot, 800, 500);
-            sceneController.setDisplayTicketScene(displayScene);
+            sceneController.setDisplayTicketScene(displayScene, displayController);
 
             // Show the initial scene (login page)
             primaryStage.initStyle(StageStyle.UNDECORATED);
-            primaryStage.setScene(loginScene); // Set the login scene as the starting scene
+            primaryStage.setScene(loginScene);
             primaryStage.show();
 
         } catch (Exception e) {
-            e.printStackTrace(); // This will print the full stack trace
-            throw e; // Rethrow to maintain original behavior
+            e.printStackTrace(); 
+            throw e; 
         }
     }
 

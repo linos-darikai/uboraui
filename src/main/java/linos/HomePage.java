@@ -43,7 +43,12 @@ public class HomePage{
     @FXML
     void toPurchaseTicket(MouseEvent event) throws IOException{
           
-        SceneController sceneController = App.getInstance().getSceneController();
+        SceneController sceneController = App.getInstance().getSceneController();       
+        
+        PurchaseTicket purchaseController = sceneController.getPurchaseController();     
+        
+      
+        purchaseController.setCurrentUser(currentUser);
         sceneController.switchToPurchase();
 
 
@@ -54,7 +59,9 @@ public class HomePage{
         welcomeMessage.setText("Welcome, " + currentUser.getName());
 
     }
-   
+   public Button getWelcomButton(){
+    return welcomeMessage;
+   }
        
 
 }
